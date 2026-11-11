@@ -83,7 +83,7 @@ export const papers: Paper[] = [
     authorsHtml:
       '<strong>Arnav Attri</strong>♢, Anuj Attri♢, Pushpak Bhattacharyya, Suman Banerjee, Amey Patil, Muthusamy Chelliah, Nikesh Garera',
     abstract:
-      'Customer reviews on e-commerce platforms capture critical affective signals that drive purchasing decisions. However, no existing research has explored the joint task of emotion detection and explanatory span identification in e-commerce reviews—a crucial gap in understanding what triggers customer emotional responses. To bridge this gap, we propose a novel joint task unifying Emotion detection and Opinion Trigger extraction (EOT), which explicitly models the relationship between causal text spans (opinion triggers) and affective dimensions grounded in Plutchik’s theory of 8 primary emotions. We introduce EOT-X, a human-annotated collection of 2,400 reviews from Amazon, Yelp, and TripAdvisor, evaluate 23 Large Language Models, and present EOT-DETECT, a structured prompting framework with systematic reasoning and self-reflection, alongside EOT-LLaMA (1B), surpassing zero-shot and chain-of-thought techniques across e-commerce domains.',
+      'Customer reviews on e-commerce platforms capture critical affective signals that drive purchasing decisions. However, no existing research has explored the joint task of emotion detection and explanatory span identification in e-commerce reviews, a crucial gap in understanding what triggers customer emotional responses. To bridge this gap, we propose a novel joint task unifying Emotion detection and Opinion Trigger extraction (EOT), which explicitly models the relationship between causal text spans (opinion triggers) and affective dimensions grounded in Plutchik’s theory of 8 primary emotions. We introduce EOT-X, a human-annotated collection of 2,400 reviews from Amazon, Yelp, and TripAdvisor, evaluate 23 Large Language Models, and present EOT-DETECT, a structured prompting framework with systematic reasoning and self-reflection, alongside EOT-LLaMA (1B), surpassing zero-shot and chain-of-thought techniques across e-commerce domains.',
     paperUrl: 'https://aclanthology.org/2025.findings-emnlp.295/',
     pdfUrl: 'https://aclanthology.org/2025.findings-emnlp.295.pdf',
     codeUrl: 'https://github.com/yourarnav/EOT-X',
@@ -152,27 +152,5 @@ export const papers: Paper[] = [
     pages = "69--101",
     ISBN = "979-8-89176-303-6"
 }`,
-  },
-  {
-    id: 'pair-encoding',
-    status: 'review',
-    venue: 'ICLR 2027',
-    affiliation: 'Under review',
-    title: 'Pair Encoding: Approximation and the Cost of a Strict Budget',
-  },
-  {
-    id: 'punjabi-asr',
-    status: 'review',
-    venue: 'ACL ARR Oct 2026',
-    affiliation: 'Under review',
-    title: 'Correct or Corrupt? A Cross-Model and Cross-Corpus Audit of LLM Post-Editing for Punjabi ASR',
-  },
-  {
-    id: 'query-recsys',
-    status: 'review',
-    venue: 'ACL ARR Oct 2026',
-    affiliation: 'Under review',
-    title: 'What Makes This Product Right for You? Query-Focused Explanations for Justifying Product Recommendations',
-    pdfUrl: 'https://openreview.net/pdf?id=y2XqBEjhmD',
   },
 ];

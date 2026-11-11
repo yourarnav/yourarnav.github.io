@@ -2,14 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import { papers } from '../data/publications';
 ---
-<Layout title="Research — Arnav Attri" description="Peer-reviewed NLP publications and manuscripts by Arnav Attri." current="research">
+<Layout title="Research · Arnav Attri" description="Peer-reviewed NLP publications and manuscripts by Arnav Attri." current="research">
   <h1>Research</h1>
   <p class="subtitle">
     Independent research in NLP with frontier closed- and open-source LLMs, alongside published work from IIT Bombay. Most published papers are written with <a href="https://openreview.net/profile?id=~Anuj_Attri1" target="_blank" rel="noopener noreferrer">Anuj Attri</a>.
   </p>
 
   <div class="filter-bar" role="group" aria-label="Filter papers by status">
-    <button type="button" class="filter-btn active" data-filter="all">All (7)</button>
+    <button type="button" class="filter-btn active" data-filter="all">All (4)</button>
     <button type="button" class="filter-btn" data-filter="published">Published (4)</button>
     <button type="button" class="filter-btn" data-filter="review">Under Review (3)</button>
   </div>
@@ -71,7 +71,11 @@ import { papers } from '../data/publications';
     ))}
   </div>
 
-  <p class="small muted" style="margin-top:20px">
+  <p id="under-review-note" class="small muted" style="margin-top:20px">
+    Three papers under review.
+  </p>
+
+  <p class="small muted" style="margin-top:10px">
     ♢ Equal contribution. The 2025 papers were completed at IIT Bombay in collaboration with Flipkart.
   </p>
 
@@ -79,14 +83,18 @@ import { papers } from '../data/publications';
     (() => {
       const filterBtns = document.querySelectorAll('.filter-btn');
       const items = document.querySelectorAll('.paper-item');
+      const reviewNote = document.getElementById('under-review-note');
 
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           const f = btn.getAttribute('data-filter');
           filterBtns.forEach(b => b.classList.toggle('active', b === btn));
           items.forEach(item => {
-            item.hidden = f !== 'all' && item.getAttribute('data-status') !== f;
+            item.hidden = f === 'review';
           });
+          if (reviewNote) {
+            reviewNote.hidden = f === 'published';
+          }
         });
       });
 
