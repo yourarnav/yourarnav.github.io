@@ -8,12 +8,6 @@ import { papers } from '../data/publications';
     Independent research in NLP with frontier closed- and open-source LLMs, alongside published work from IIT Bombay. Most published papers are written with <a href="https://openreview.net/profile?id=~Anuj_Attri1" target="_blank" rel="noopener noreferrer">Anuj Attri</a>.
   </p>
 
-  <div class="filter-bar" role="group" aria-label="Filter papers by status">
-    <button type="button" class="filter-btn active" data-filter="all">All (4)</button>
-    <button type="button" class="filter-btn" data-filter="published">Published (4)</button>
-    <button type="button" class="filter-btn" data-filter="review">Under Review (3)</button>
-  </div>
-
   <div id="paper-list">
     {papers.map((paper) => (
       <article id={paper.id} class="paper-item" data-status={paper.status}>
@@ -81,23 +75,6 @@ import { papers } from '../data/publications';
 
   <script is:inline>
     (() => {
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const items = document.querySelectorAll('.paper-item');
-      const reviewNote = document.getElementById('under-review-note');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const f = btn.getAttribute('data-filter');
-          filterBtns.forEach(b => b.classList.toggle('active', b === btn));
-          items.forEach(item => {
-            item.hidden = f === 'review';
-          });
-          if (reviewNote) {
-            reviewNote.hidden = f === 'published';
-          }
-        });
-      });
-
       document.querySelectorAll('[data-toggle]').forEach(btn => {
         btn.addEventListener('click', () => {
           const targetId = btn.getAttribute('data-toggle');
