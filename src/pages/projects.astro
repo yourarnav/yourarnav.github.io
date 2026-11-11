@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Projects — Arnav Attri" description="Native macOS utilities, research companion repositories, and academic infrastructure built by Arnav Attri." current="projects">
+  <h1>Projects</h1>
+
+  <h2>Native macOS &amp; Student Tools</h2>
+  <ul class="rows">
+    <li>
+      <div class="row-head">
+        <strong>CodexReserve</strong>
+        <span class="mono muted">Swift · SwiftUI + AppKit</span>
+      </div>
+      <p class="small muted" style="margin:6px 0 10px">
+        Two rings in your menu bar tracking 5-hour and weekly Codex limits—native Swift with zero dependencies and no Electron wrapper.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+        <button type="button" class="copy-pill" data-copy="brew install --cask yourarnav/tap/codexreserve">$ brew install --cask yourarnav/tap/codexreserve</button>
+        <a class="small" href="https://github.com/yourarnav/CodexReserve" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </li>
+
+    <li>
+      <div class="row-head">
+        <strong>PDFtoImages</strong>
+        <span class="mono muted">Objective-C · &lt;300 KB</span>
+      </div>
+      <p class="small muted" style="margin:6px 0 10px">
+        Ultra-lightweight native macOS utility to convert PDFs into numbered PNG folders in milliseconds—100% offline with zero network requests.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+        <button type="button" class="copy-pill" data-copy="brew install --cask yourarnav/tap/pdftoimages">$ brew install --cask yourarnav/tap/pdftoimages</button>
+        <a class="small" href="https://github.com/yourarnav/PDFtoImages" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </li>
+
+    <li>
+      <div class="row-head">
+        <strong>NeverLate</strong>
+        <span class="mono muted">JavaScript · Plaksha LMS</span>
+      </div>
+      <p class="small muted" style="margin:6px 0 8px">
+        A free, privacy-first deadline tracker for the Plaksha LMS, built for Plaksha students.
+      </p>
+      <div class="small" style="display:flex;gap:14px">
+        <a href="https://yourarnav.github.io/NeverLate-Plaksha/" target="_blank" rel="noopener noreferrer">Website</a>
+        <a href="https://github.com/yourarnav/NeverLate-Plaksha" target="_blank" rel="noopener noreferrer">Code</a>
+      </div>
+    </li>
+  </ul>
+
+  <h2>Academic Infrastructure &amp; Research Code</h2>
+  <ul class="rows">
+    <li>
+      <div class="row-head">
+        <strong>Research Companion Repositories</strong>
+        <span class="mono muted">NLP</span>
+      </div>
+      <p class="small muted" style="margin:6px 0 8px">
+        Public companion repositories and datasets released alongside our papers at EMNLP and IJCNLP-AACL.
+      </p>
+      <div class="small" style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="https://github.com/yourarnav/PunjabiSafetyBench-Companion" target="_blank" rel="noopener noreferrer">PunjabiSafetyBench-Companion</a>
+        <a href="https://github.com/yourarnav/EOT-X" target="_blank" rel="noopener noreferrer">EOT-X</a>
+        <a href="https://github.com/yourarnav/M-OS" target="_blank" rel="noopener noreferrer">M-OS</a>
+      </div>
+    </li>
+
+    <li>
+      <div class="row-head">
+        <strong>NLP Lecture YouTube Channel (@pb_nlp)</strong>
+        <span class="muted small">2,000+ subscribers</span>
+      </div>
+      <p class="small muted" style="margin:6px 0 8px">
+        Co-created and maintained Prof. Pushpak Bhattacharyya's lecture channel at IIT Bombay.
+      </p>
+      <a class="small" href="https://www.youtube.com/@pb_nlp" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
+    </li>
+
+    <li>
+      <div class="row-head">
+        <strong>Paper Sorter for IIT Bombay CSE</strong>
+        <span class="mono muted">LLM Pipeline</span>
+      </div>
+      <p class="small muted" style="margin:6px 0 8px">
+        An LLM-based tool that sorts faculty publications into 10 AI research areas, built at Prof. Arpit Agarwal's request for the department's ML page.
+      </p>
+      <a class="small" href="https://www.cse.iitb.ac.in/~ml/" target="_blank" rel="noopener noreferrer">ML at IIT Bombay</a>
+    </li>
+
+    <li>
+      <div class="row-head">
+        <strong>IIT Bombay Course Websites</strong>
+      </div>
+      <p class="small muted" style="margin:6px 0 8px">
+        Course portals built for CS626 (2024) and CS217 (2025) at IIT Bombay.
+      </p>
+      <div class="small" style="display:flex;gap:14px">
+        <a href="https://www.cse.iitb.ac.in/~cs626/2024/" target="_blank" rel="noopener noreferrer">CS626 (2024)</a>
+        <a href="https://www.cse.iitb.ac.in/~cs217/2025/" target="_blank" rel="noopener noreferrer">CS217 (2025)</a>
+      </div>
+    </li>
+  </ul>
+</Layout>

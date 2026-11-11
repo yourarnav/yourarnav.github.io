@@ -1,0 +1,9 @@
+---
+interface Props {
+  label?: string;
+}
+const { label = 'Copy email address' } = Astro.props;
+---
+<button type="button" class="email-btn js-copy-email" aria-label={label} title="Click to copy email address">
+  <span>arnav<span class="em-dot"></span>attri<span class="em-at"></span>plaksha<span class="em-dot"></span>edu<span class="em-dot"></span>in</span>
+</button>

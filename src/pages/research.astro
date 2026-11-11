@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { papers } from '../data/publications';
+---
+<Layout title="Research — Arnav Attri" description="Peer-reviewed NLP publications and manuscripts by Arnav Attri." current="research">
+  <h1>Research</h1>
+  <p class="subtitle">
+    Independent research in NLP with frontier closed- and open-source LLMs, alongside published work from IIT Bombay. Most published papers are written with <a href="https://openreview.net/profile?id=~Anuj_Attri1" target="_blank" rel="noopener noreferrer">Anuj Attri</a>.
+  </p>
+
+  <div class="filter-bar" role="group" aria-label="Filter papers by status">
+    <button type="button" class="filter-btn active" data-filter="all">All (7)</button>
+    <button type="button" class="filter-btn" data-filter="published">Published (4)</button>
+    <button type="button" class="filter-btn" data-filter="review">Under Review (3)</button>
+  </div>
+
+  <div id="paper-list">
+    {papers.map((paper) => (
+      <article id={paper.id} class="paper-item" data-status={paper.status}>
+        <div class={`paper-venue ${paper.status === 'review' ? 'review' : ''}`}>
+          {paper.venue} · <span class="muted" style="font-weight:400">{paper.affiliation}</span>
+        </div>
+
+        <h3 class="paper-title">
+          {paper.paperUrl ? (
+            <a href={paper.paperUrl} target="_blank" rel="noopener noreferrer">{paper.title}</a>
+          ) : (
+            paper.title
+          )}
+        </h3>
+
+        {paper.authorsHtml && (
+          <div class="paper-authors" set:html={paper.authorsHtml} />
+        )}
+
+        <div class="paper-actions">
+          {paper.paperUrl && (
+            <a href={paper.paperUrl} target="_blank" rel="noopener noreferrer">Paper</a>
+          )}
+          {paper.pdfUrl && (
+            <a href={paper.pdfUrl} target="_blank" rel="noopener noreferrer">PDF</a>
+          )}
+          {paper.codeUrl && (
+            <a href={paper.codeUrl} target="_blank" rel="noopener noreferrer">Code</a>
+          )}
+          {paper.abstract && (
+            <button type="button" class="action-btn" data-toggle={`abs-${paper.id}`} aria-expanded="false">
+              Abstract
+            </button>
+          )}
+          {paper.bib && (
+            <button type="button" class="action-btn" data-toggle={`bib-${paper.id}`} aria-expanded="false">
+              BibTeX
+            </button>
+          )}
+        </div>
+
+        {paper.abstract && (
+          <div id={`abs-${paper.id}`} class="drawer" hidden>
+            <p style="margin:0">{paper.abstract}</p>
+          </div>
+        )}
+
+        {paper.bib && (
+          <div id={`bib-${paper.id}`} class="drawer" hidden>
+            <pre class="bib-pre">{paper.bib}</pre>
+            <button type="button" class="copy-pill" data-copy={paper.bib}>Copy BibTeX</button>
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+
+  <p class="small muted" style="margin-top:20px">
+    ♢ Equal contribution. The 2025 papers were completed at IIT Bombay in collaboration with Flipkart.
+  </p>
+
+  <script is:inline>
+    (() => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.paper-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const f = btn.getAttribute('data-filter');
+          filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+          items.forEach(item => {
+            item.hidden = f !== 'all' && item.getAttribute('data-status') !== f;
+          });
+        });
+      });
+
+      document.querySelectorAll('[data-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-toggle');
+          const panel = document.getElementById(targetId);
+          if (!panel) return;
+          const willOpen = panel.hidden;
+          // Close sibling drawer on the same paper for neatness
+          const article = btn.closest('.paper-item');
+          article?.querySelectorAll('.drawer').forEach(d => { d.hidden = true; });
+          article?.querySelectorAll('[data-toggle]').forEach(b => b.setAttribute('aria-expanded', 'false'));
+          panel.hidden = !willOpen;
+          btn.setAttribute('aria-expanded', String(willOpen));
+        });
+      });
+    })();
+  </script>
+</Layout>
